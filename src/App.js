@@ -1,9 +1,8 @@
 import React from 'react';
-import  RouterList from './router/router'
+import  RouterList from '@/router/router'
 import { Provider } from "react-redux";
-import store from './store'
+import store,{persistor} from '@/store'
 import {PersistGate} from 'redux-persist/lib/integration/react';
-import {persistor} from './store'
 
 export  default  class  App  extends  React.Component{
   constructor(props) {
