@@ -1,43 +1,19 @@
 import React from 'react';
-import { TabBar,WingBlank,WhiteSpace,Button} from 'antd-mobile';
+import { TabBar,WingBlank,Button} from 'antd-mobile';
 
 export default class home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             selectedTab: 'redTab',
-            hidden: false,
-            fullScreen: true,
         };
     }
 
     renderContent(pageText) {
         return (
             <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center', overflow: "scroll" }}>
-                <div style={{ paddingTop: 60 }}>Clicked “{pageText}” tab， show “{pageText}” information</div>
-                <a style={{ display: 'block', marginTop: 40, marginBottom: 20, color: '#108ee9' }}
-                    onClick={(e) => {
-                        e.preventDefault();
-                        this.setState({
-                            hidden: !this.state.hidden,
-                        });
-                    }}
-                >
-                    Click to show/hide tab-bar
-        </a>
-                <a style={{ display: 'block', marginBottom: 600, color: '#108ee9' }}
-                    onClick={(e) => {
-                        e.preventDefault();
-                        this.setState({
-                            fullScreen: !this.state.fullScreen,
-                        });
-                    }}
-                >
-                    Click to switch fullscreen
-        </a>
-                <WhiteSpace size="lg" />
-                <WingBlank size="sm">
-                    <Button onClick={() => this.props.history.push('/news')} type="primary">news</Button>
+                <WingBlank style={{marginTop:50}} size="sm">
+                    <Button onClick={() => this.props.history.push('/news')} type="primary">新闻</Button>
                 </WingBlank>
             </div>
         );
@@ -45,12 +21,11 @@ export default class home extends React.Component {
 
     render() {
         return (
-            <div style={this.state.fullScreen ? { position: 'fixed', height: '100%', width: '100%', top: 0 } : { height: 400 }}>
+            <div style={{ position: 'fixed', height: '100%', width: '100%', top: 0 }}>
                 <TabBar
                     unselectedTintColor="#949494"
                     tintColor="#33A3F4"
                     barTintColor="white"
-                    hidden={this.state.hidden}
                 >
                     <TabBar.Item
                         title="Life"
